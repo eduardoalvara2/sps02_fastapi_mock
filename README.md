@@ -4,13 +4,14 @@
 **Instalar dependencias usando uv**
 
 ```bash
-uv sync
-```
+# 1) Instalar
+uv venv
 
-3. **Activar el entorno virtual**
-
-```bash
+# 2) Activar venv (uv gestiona todo)
 source .venv/bin/activate
+
+# 3) Sincronizar el entorno
+uv sync
 ```
 
 # Configuraciones para desarrollo sps02_fastapi_connector:

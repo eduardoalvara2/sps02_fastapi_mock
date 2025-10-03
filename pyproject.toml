@@ -1,0 +1,32 @@
+[project]
+name = "sps02_api_test"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.116.1",
+  "uvicorn>=0.35.0",
+  "pydantic>=1.10.0,<2.0.0",
+  "python-dotenv>=1.0.0",
+  "httpx[http2]>=0.28.1",
+  "orjson>=3.11.3",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
+# opcional: excluir ruido del paquete
+exclude = [".git", ".venv", "tests", "docker*", "Dockerfile"]
+
+[tool.hatch.build.targets.wheel]
+# Indica qué paquetes subir al wheel
+packages = ["app", "src/sps02_api_test"]
+
+[tool.hatch.build.targets.editable]
+# Lo mismo pero para editable installs (uv sync instala en editable)
+packages = ["app", "src/sps02_api_test"]
+
+[tool.pytest.ini_options]
+pythonpath = ["app"]
+testpaths = ["tests"]

@@ -1,10 +1,12 @@
 from fastapi import APIRouter
 from fastapi.responses import JSONResponse
+from app.services.sleep import with_sleep
 
 router = APIRouter()
 
 
 @router.get("/suseso/consultaAfiliacionCaja/{rut}")
+@with_sleep(10)  # You can change the delay time in milliseconds here
 async def testsusesoconsultaAfiliacionCaja(rut: str):
     return JSONResponse(content={
         "cajas": [

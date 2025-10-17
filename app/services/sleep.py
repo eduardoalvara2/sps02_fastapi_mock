@@ -3,7 +3,7 @@ from typing import Optional
 from functools import wraps
 import anyio
 
-def with_sleep(delay_ms: Optional[int] = 500):
+def with_sleep(delay_ms: Optional[int] = 100):
     def decorator(func):
         @wraps(func)
         async def wrapper(*args, **kwargs):

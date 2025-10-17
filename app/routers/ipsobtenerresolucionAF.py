@@ -1,10 +1,12 @@
 from fastapi import APIRouter
 from fastapi.responses import JSONResponse
+from app.services.sleep import with_sleep
 
 router = APIRouter()
 
 
 @router.get("/ips/obtenerresolucionAF/{rut}")
+@with_sleep()  # You can change the delay time in milliseconds here
 async def testipsobtenerresolucionAF(rut: str):
     return JSONResponse(content={
         "codigoRetorno": 0,

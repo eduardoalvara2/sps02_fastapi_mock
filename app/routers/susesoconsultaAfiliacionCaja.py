@@ -6,7 +6,7 @@ router = APIRouter()
 
 
 @router.get("/suseso/consultaAfiliacionCaja/{rut}")
-@with_sleep(10)  # You can change the delay time in milliseconds here
+@with_sleep()  # You can change the delay time in milliseconds here
 async def testsusesoconsultaAfiliacionCaja(rut: str):
     return JSONResponse(content={
         "cajas": [
